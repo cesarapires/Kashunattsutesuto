@@ -1,5 +1,6 @@
 package com.kashunattsutesuto.application.controller.resources;
 
+import com.kashunattsutesuto.domain.model.MCCCategory;
 import com.kashunattsutesuto.domain.model.Transaction;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
@@ -32,7 +33,7 @@ public class TransactionRequest {
                 .accountId(this.accountId)
                 .amount(this.amount)
                 .merchant(this.merchant)
-                .mccCode(this.mccCode)
+                .mccCategory(MCCCategory.fromCode(mccCode))
                 .build();
     }
 }

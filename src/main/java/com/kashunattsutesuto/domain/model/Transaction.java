@@ -18,5 +18,5 @@ public class Transaction {
 
     private String merchant;
 
-    private String mccCode;
+    private MCCCategory mccCategory;
 }

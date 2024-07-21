@@ -1,6 +1,7 @@
 package com.kashunattsutesuto.domain.usecase;
 
 import com.kashunattsutesuto.domain.contracts.repositories.WalletPersistenceAdapter;
+import com.kashunattsutesuto.domain.model.MCCCategory;
 import com.kashunattsutesuto.domain.model.Transaction;
 import com.kashunattsutesuto.domain.model.TransactionStatus;
 import org.junit.jupiter.api.BeforeEach;
@@ -31,7 +32,7 @@ class CreateTransactionUseCaseTest {
                 "123",
                 new BigDecimal(45.00),
                 "PADARIA DO ZE SAO PAULO BR",
-                "5811"
+                MCCCategory.MEAL
         );
     }
 
