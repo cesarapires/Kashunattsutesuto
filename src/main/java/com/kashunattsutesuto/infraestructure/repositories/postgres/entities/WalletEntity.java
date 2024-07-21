@@ -1,5 +1,6 @@
 package com.kashunattsutesuto.infraestructure.repositories.postgres.entities;
 
+import com.kashunattsutesuto.domain.model.Wallet;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -27,4 +28,13 @@ public class WalletEntity {
 
     @Column(name = "cash_balance")
     private BigDecimal cashBalance;
+
+    public Wallet toDomain() {
+        return Wallet.builder()
+                .id(this.id)
+                .accountId(this.accountId)
+                .cashBalance(this.cashBalance)
+                .mealBalance(this.mealBalance)
+                .build();
+    }
 }
