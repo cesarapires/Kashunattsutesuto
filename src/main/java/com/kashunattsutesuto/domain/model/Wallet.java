@@ -1,8 +1,14 @@
 package com.kashunattsutesuto.domain.model;
 
-import java.math.BigDecimal;
-import java.util.UUID;
+import lombok.*;
 
+import java.math.BigDecimal;
+
+@Builder
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Wallet {
     private String id;
 
