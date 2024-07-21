@@ -2,6 +2,7 @@ package com.kashunattsutesuto.domain.usecase;
 
 import com.kashunattsutesuto.domain.contracts.repository.WalletPersistenceAdapter;
 import com.kashunattsutesuto.domain.model.Transaction;
+import com.kashunattsutesuto.domain.model.TransactionStatus;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -10,6 +11,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.math.BigDecimal;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
@@ -43,5 +45,14 @@ class CreateTransactionUseCaseTest {
 
         // Assert
         verify(walletPersistenceAdapter).getWalletByAccountId(accountId);
+    }
+
+    @Test
+    public void shouldReturnGenericErrorWhenDontFoundWallet() {
+        // Act
+        TransactionStatus result = createTransactionUseCase.create(transaction);
+
+        // Assert
+        assertEquals(result, TransactionStatus.GENERIC_ERROR);
     }
 }

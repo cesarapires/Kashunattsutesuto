@@ -1,7 +1,8 @@
 package com.kashunattsutesuto.domain.feature;
 
 import com.kashunattsutesuto.domain.model.Transaction;
+import com.kashunattsutesuto.domain.model.TransactionStatus;
 
 public interface CreateTransaction {
-    String create(Transaction transaction);
+    TransactionStatus create(Transaction transaction);
 }
