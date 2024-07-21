@@ -1,4 +1,4 @@
-package com.kashunattsutesuto.domain.contracts.repository;
+package com.kashunattsutesuto.domain.contracts.repositories;
 
 import com.kashunattsutesuto.domain.model.Wallet;
 

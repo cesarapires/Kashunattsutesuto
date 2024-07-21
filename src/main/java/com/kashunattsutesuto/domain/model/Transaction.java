@@ -21,5 +21,5 @@ public class Transaction {
 
     private String merchant;
 
-    private String mcc;
+    private String mccCode;
 }

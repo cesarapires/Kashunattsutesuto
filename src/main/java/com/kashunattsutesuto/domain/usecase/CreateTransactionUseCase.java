@@ -1,6 +1,6 @@
 package com.kashunattsutesuto.domain.usecase;
 
-import com.kashunattsutesuto.domain.contracts.repository.WalletPersistenceAdapter;
+import com.kashunattsutesuto.domain.contracts.repositories.WalletPersistenceAdapter;
 import com.kashunattsutesuto.domain.feature.CreateTransaction;
 import com.kashunattsutesuto.domain.model.Transaction;
 import com.kashunattsutesuto.domain.model.TransactionStatus;
