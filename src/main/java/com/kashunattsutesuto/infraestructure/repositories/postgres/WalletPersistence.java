@@ -5,7 +5,11 @@ import com.kashunattsutesuto.domain.model.Wallet;
 import com.kashunattsutesuto.infraestructure.repositories.postgres.entities.WalletEntity;
 import com.kashunattsutesuto.infraestructure.repositories.postgres.repository.WalletRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
+@Repository
 @AllArgsConstructor
 public class WalletPersistence implements WalletPersistenceAdapter {
 
@@ -13,10 +17,17 @@ public class WalletPersistence implements WalletPersistenceAdapter {
 
     @Override
     public Wallet getWalletByAccountId(String accountId) {
-        WalletEntity walletEntity = walletRepository.findById(accountId).get();
-        if (walletEntity == null) {
+        Optional<WalletEntity> walletEntity = walletRepository.findByAccountId(accountId);
+        if (!walletEntity.isPresent()) {
             return null;
         }
+        return walletEntity.get().toDomain();
+    }
+
+    @Override
+    public Wallet save(Wallet wallet) {
+        WalletEntity walletEntity = new WalletEntity(wallet);
+        walletEntity = walletRepository.save(walletEntity);
         return walletEntity.toDomain();
     }
 }
