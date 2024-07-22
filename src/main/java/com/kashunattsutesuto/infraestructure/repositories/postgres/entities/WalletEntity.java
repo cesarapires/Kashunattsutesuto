@@ -29,12 +29,26 @@ public class WalletEntity {
     @Column(name = "cash_balance")
     private BigDecimal cashBalance;
 
+    @Version
+    private Integer version;
+
     public Wallet toDomain() {
         return Wallet.builder()
                 .id(this.id)
                 .accountId(this.accountId)
                 .cashBalance(this.cashBalance)
                 .mealBalance(this.mealBalance)
+                .foodBalance(this.foodBalance)
+                .version(this.version)
                 .build();
+    }
+
+    public WalletEntity (Wallet wallet) {
+        this.id = wallet.getId();
+        this.accountId = wallet.getAccountId();
+        this.foodBalance = wallet.getFoodBalance();
+        this.cashBalance = wallet.getCashBalance();
+        this.mealBalance = wallet.getMealBalance();
+        this.version = wallet.getVersion();
     }
 }

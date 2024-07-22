@@ -19,4 +19,6 @@ public class Wallet {
     private BigDecimal mealBalance;
 
     private BigDecimal cashBalance;
+
+    private Integer version;
 }

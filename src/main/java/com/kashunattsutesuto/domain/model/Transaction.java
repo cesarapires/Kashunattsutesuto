@@ -19,4 +19,6 @@ public class Transaction {
     private String merchant;
 
     private MCCCategory mccCategory;
+
+    private Integer version;
 }
